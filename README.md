@@ -2,8 +2,6 @@ CS 410/510P Final Project
 
 Uses the SuperHeroapi to gather information about heroes and displays them to viewers.
 
-React application
-
 Home page (index.html):
 
   Tells the user about the site and functionality
