@@ -12,4 +12,12 @@ VS page (vs.html):
   
   The page will generate the heroes images, names, and stats and will display the name of the winner below
   
- 
+Hero Cards (cards.html):
+
+  Displays all the Heroes by their names and image
+  
+  When a user clicks on a hero image they will be directed to a page that has all that hero's description
+  
+Search page (search.html):
+
+  User can enter a hero name in a search bar and the server will query the api and return the hero that matches the search criteria
