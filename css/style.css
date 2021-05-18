@@ -1,3 +1,85 @@
-* {
+html,
+body {
     font-family: 'Rubik', sans-serif;
+    color: #444;
+    margin: 0;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.navbar {
+    background: black;
+    padding: 0 8%;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,0.5);
+    width: 100%;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar .navbar-brand {
+    background: #C31BCF;
+    background: -webkit-radial-gradient(circle farthest-side at top right, #3f42e2 0%, #91EEE1 72%);
+    background: -moz-radial-gradient(circle farthest-side at top right, #3f42e2 0%, #91EEE1 72%);
+    background: radial-gradient(circle farthest-side at top right, #3f42e2 0%, #91EEE1 72%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+}
+.navbar .navbar-nav .nav-link {
+    color: #91eee1;
+}
+
+.navbar-link {
+    padding: 0.5rem 10rem;
+}
+
+.navbar-toggler {
+    background: #91eee1;
+    border: none;
+    padding: 5px;
+    outline: none;
+}
+
+.navbar-toggler span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border: 1px;
+    background: black;
+}
+
+.navbar-toggler span + span {
+    margin-top: 4px;
+    width: 18px;
+}
+
+.navbar-toggler span + span + span{
+    width: 18px;
+}
+
+.navbar-toggler span + span + span + span{
+    width: 18px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0 1.2rem;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover,
+.navbar-expand-lg .navbar-nav .nav-link:active,
+.navbar-expand-lg .navbar-nav .nav-link:focus {
+    background-color:#91eee1;
+    color: black;
 }
