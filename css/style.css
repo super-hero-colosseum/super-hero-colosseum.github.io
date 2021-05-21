@@ -83,3 +83,11 @@ ul {
     background-color:#91eee1;
     color: black;
 }
+
+h1 {
+    text-align: center;
+}
+
+#content {
+    margin-top: 3.0rem;
+}
