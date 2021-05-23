@@ -2,17 +2,17 @@
 // Make fetch calls to: https://superheroapi.com/api/287893849691649/reference
 // character ids range from 1-733
 
-// const section = document.getElementById("images");
-// const divContainer = document.createElement("div");
-// divContainer.className = "container";
-// let url = "https://superheroapi.com/api/287893849691649/";
-// let charIds = [];
-// let i;
-// // stores 3 random integers into the IDs array
-// for(i=0; i < 3; i++) {
-//     let num = Math.floor(Math.random() * 733) + 1; // random integer from 1 to 733
-//     charIds.push(num);
-// }
+const section = document.getElementById("images");
+const divContainer = document.createElement("div");
+divContainer.className = "container";
+let url = "https://superheroapi.com/api/287893849691649/";
+let charIds = [];
+let i;
+// stores 3 random integers into the IDs array
+for(i=0; i < 3; i++) {
+    let num = Math.floor(Math.random() * 733) + 1; // random integer from 1 to 733
+     charIds.push(num);
+ }
 
 //console.log(charIds);
 // This did not work, need to find some way around CORS blocking
@@ -53,25 +53,3 @@ async function addImages() {
 
 addImages();
 */
-
-let url = "https://superheroapi.com/api/access-token/character-id";
-let homepageImages = document.getElementById('images');
-
-window.onload = getImages();
-
-function getImages() {
-    let getApi = fetch(url);
-    if(getApi == undefined) {
-        console.log('error');
-    }
-
-    let getJson = getApi.then(function(response) {
-        return response.json();
-    })
-
-    if(getJson == undefined) {
-        console.log('error');
-    }
-
-    console.log(getJson);
-}
