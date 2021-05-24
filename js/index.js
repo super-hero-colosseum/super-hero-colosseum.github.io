@@ -101,6 +101,7 @@ async function getCharacters() {
     // Check that the data is valid
     if(data == undefined) {
         console.log('Error getting data from response');
+    }
     
     // call function to display three random heroes
     displayHeroes(data);
