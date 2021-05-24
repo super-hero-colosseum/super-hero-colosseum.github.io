@@ -20,6 +20,9 @@ let url = "https://akabab.github.io/superhero-api/api/all.json";
 const form = document.querySelector('form');
 const heroOneName = document.getElementById('heroOneName');
 const heroTwoName = document.getElementById('heroTwoName');
+const myChart1 = document.getElementById('myChart1');
+const myChart2 = document.getElementById('myChart2');
+
 
 
 form.addEventListener('submit', (e) => {
@@ -27,22 +30,48 @@ form.addEventListener('submit', (e) => {
     getApiJson();
 })
 
-// function findIfExists(data) {
-//     data.every(element => {
-//         if(heroOneName.value === element.name)
-//             return true;
-//     })
-// }
+//create charts using the stats of two superheros
+function createChart(stats1, stats2) {
 
-function isExists(data) {
-    
+    let chart1 = new Chart(myChart1, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(stats1),
+            datasets: [{
+                data: Object.values(stats1),
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                display: false
+            }
+        }
+    })
 
-    if(found1 === true && found2 === true) {
-
-    }
+    let chart2 = new Chart(myChart2, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(stats2),
+            datasets: [{
+                data: Object.values(stats2),
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                display: false
+            }
+        }
+    })
 }
 
 
+//find the names and create cards
 function findNames(data) {
     const heroOneInfo = document.getElementById('heroOneInfo');
     const heroTwoInfo = document.getElementById('heroTwoInfo');
@@ -65,6 +94,8 @@ function findNames(data) {
 
 
     if(found1 === true &&  found2 === true) {
+        let stats1, stats2;
+
         data.forEach(element => {
             if(heroOneName.value === element.name) {
                 let name = document.createElement('h5');
@@ -89,7 +120,7 @@ function findNames(data) {
                 alignment.innerText = 'ALIGNMENT: ' + element.biography.alignment;
                 
                 //create array for chart to use as data
-                let stats1 = element.powerstats;
+                stats1 = element.powerstats;
             }
     
             if(heroTwoName.value === element.name) {
@@ -114,9 +145,11 @@ function findNames(data) {
                 heroTwoInfo.appendChild(alignment);
                 alignment.innerText = 'ALIGNMENT: ' + element.biography.alignment;
                 //create array for chart to use as data
-                let stats2 = element.powerstats;
+                stats2 = element.powerstats;
             } 
         })
+
+        createChart(stats1, stats2);
     }
 
     if(found1 === true &&  found2 === false) {
