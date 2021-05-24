@@ -25,7 +25,7 @@
     <!-- custom css file -->
     <link rel="stylesheet" href="css/style.css">
 
-
+    <script defer src="js/vs.js"></script>
 </head>
 
 <body>
@@ -71,19 +71,21 @@
 
             <!-- input form -->
             <form action="" class="fight-form">
-                <input type="text" class="form-control" placeholder="Superhero #1 ..." aria-label="Superhero 1's name" aria-describedby="Superhero 1's name">
-                <input type="text" class="form-control" placeholder="Superhero #2 ..." aria-label="Superhero 2's name" aria-describedby="Superhero 1's name">
-                <button class="btn btn-outline-secondary" type="button">Fight</button>
+                <input id="heroOneName" type="text" class="form-control" placeholder="Superhero #1 ..." aria-label="Superhero 1's name" aria-describedby="Superhero 1's name" required>
+                <input id="heroTwoName" type="text" class="form-control" placeholder="Superhero #2 ..." aria-label="Superhero 2's name" aria-describedby="Superhero 1's name" required>
+                <button id="submit" class="btn btn-outline-secondary" type="submit">Fight</button>
             </form>
             <!-- end of input form -->
 
             <!-- two charts -->
-            <div class="ontainer">
+            <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
+                        <div id="heroOneInfo"></div>
                         <canvas id="myChart1" role="img"></canvas>
                     </div>
                     <div class="col-sm-6">
+                        <div id="heroTwoInfo"></div>
                         <canvas id="myChart2" role="img"></canvas>
                     </div>
                     
