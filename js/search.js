@@ -21,7 +21,10 @@ const searchEvent = document.querySelector('.btn-info');
 // call the handleClick() function
 searchEvent.addEventListener('click', handleClick);
 
+function handleClick(event) {
 
+    return;
+}
 
 // Function for getting all the data from the api
 async function getCharacters() {
