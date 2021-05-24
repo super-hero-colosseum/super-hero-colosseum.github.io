@@ -91,3 +91,36 @@ h1 {
 #content {
     margin-top: 3.0rem;
 }
+
+main {
+    padding: 0 8%;
+}
+
+.cards-body {
+    text-align: center;
+}
+
+
+
+.cards-body h1 {
+    padding-top: 80px;
+}
+
+#cards div {
+    display: inline-block;
+    background: black;
+    padding: 10px;
+    margin: 5px;
+}
+
+.heroName {
+    padding: 10px 0;
+    color: #91eee1;
+    width: 160px;
+    /* height: 380px; */
+}
+
+#cards p {
+    color: white;
+    width: 160px;
+}
