@@ -71,12 +71,27 @@
 
             <!-- input form -->
             <form action="" class="fight-form">
-                <input type="text" class="form-control" placeholder="Superhero #1..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control" placeholder="Superhero #2" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <button class="btn btn-outline-secondary" type="button">Button</button>
+                <input type="text" class="form-control" placeholder="Superhero #1 ..." aria-label="Superhero 1's name" aria-describedby="Superhero 1's name">
+                <input type="text" class="form-control" placeholder="Superhero #2 ..." aria-label="Superhero 2's name" aria-describedby="Superhero 1's name">
+                <button class="btn btn-outline-secondary" type="button">Fight</button>
             </form>
-
             <!-- end of input form -->
+
+            <!-- two charts -->
+            <div class="ontainer">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <canvas id="myChart1" role="img"></canvas>
+                    </div>
+                    <div class="col-sm-6">
+                        <canvas id="myChart2" role="img"></canvas>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <!-- end of two charts -->
+
         </section>
     </main>
     <!-- end of search field -->
@@ -91,6 +106,7 @@
 
     <!-- custom js -->
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 </body>
 
