@@ -6,6 +6,8 @@ body {
     overflow-x: hidden;
     top: 0;
     left: 0;
+
+
 }
 
 ul {
@@ -95,6 +97,12 @@ h1 {
 main {
     padding: 0 8%;
     padding-bottom: 20px;
+
+}
+
+.vs-page main {
+    background: #dfe7f18f;
+    height: 100vh;
 }
 
 .cards-body,
@@ -132,4 +140,41 @@ main {
     max-width: 400px;
     display: inline;
     margin: 5px;
+}
+
+.vs-body h1 {
+    font-size: 3rem;
+}
+
+.vs-body button {
+    border-radius: 0;
+    color: #91eee1;
+    background-color: #050801;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: 0.5s;
+    border: black;
+    width: 100px;
+    margin: 20px;
+    font-weight: bold;
+    /* word-spacing: 80px; */
+}
+
+.vs-body button:hover {
+    background: #f33d89;
+    color: white;
+    box-shadow: 0 0 5px #b8b5ff,
+                0 0 25px #b8b5ff,
+                0 0 50px #b8b5ff,
+                0 0 500px #b8b5ff;
+    /* border: 1px solid #a6a3fd; */
+
+}
+
+.vs-body #heroOneName {
+    border-image: linear-gradient(45deg, #3f42e2, #91eee1) 1;
+}
+
+.vs-body #heroTwoName {
+    border-image: linear-gradient(45deg, #91eee1, #3f42e2) 1;
 }

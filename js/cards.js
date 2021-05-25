@@ -6,7 +6,6 @@ window.onload = getApiJson();
 function displayCards(data) {
     data.forEach(element => {
         let div = document.createElement('div');
-        
         cardsInfo.appendChild(div);
         // let a = document.createElement('a');
         let img = document.createElement('img');
