@@ -38,7 +38,7 @@ function displayHeroes(data) {
     let parentDiv = document.createElement("div");
     
     // make the class = row
-    parentDiv.className = "row";
+    // parentDiv.className = "row";
 
     // get the images from the data
     charIds.forEach((num) =>{
@@ -55,7 +55,7 @@ function displayHeroes(data) {
         // pb-2: padding bottom
         // pl-2: padding left
         // pr-2: padding right
-        cardDiv.className = "card-div col-sm-6 col-lg-3 pt-2 pb-2 pl-2 pr-2";
+        cardDiv.className = "card-div";
 
         // change the color of texts to black
         cardDiv.style.color = "black";
