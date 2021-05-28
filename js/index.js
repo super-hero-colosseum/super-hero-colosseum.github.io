@@ -1,7 +1,3 @@
-// Access token: 287893849691649
-// Make fetch calls to: https://superheroapi.com/api/287893849691649/reference
-// character ids range from 1-733
-
 // using this api now: base api: https://akabab.github.io/superhero-api/api
 // geting ids: /id/#.json
 
@@ -107,7 +103,6 @@ async function getCharacters() {
     displayHeroes(data);
     
 }
-
 
 // Calling function upon html page reaching the script tag
 getCharacters();
