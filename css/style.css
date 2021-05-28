@@ -115,7 +115,8 @@ main {
 }
 
 .vs-page,
-.cards-body
+.cards-body,
+.search-body
  {
     background: #dfe7f18f;
     height: 100%;
