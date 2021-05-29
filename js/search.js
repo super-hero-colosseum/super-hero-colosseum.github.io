@@ -144,8 +144,19 @@ function searchCharacters() {
         // if the character exists, call function to update the DOM
         // Then return true
         // convert the character name to a lowercase str for comparison
-        toCompare = characters[i].name.toLowerCase();
-        if(hero.localeCompare(toCompare) === 0){
+        toCompareName = characters[i].name.toLowerCase();
+        if(hero.localeCompare(toCompareName) === 0){
+            updateDOM(characters[i]);
+            return true;
+        }
+        // There are some characters who share the name hero name
+        // So we'll also accept character's real full name
+        // Example: when searching for "Batman"
+        //          You'll get Terry McGinnis Batman (Batman Beyond)
+        //          But now you can get Bruce Wayne Batman (original) by
+        //          searching for his real full name
+        toCompareFullName = characters[i].biography.fullName.toLowerCase();
+        if(hero.localeCompare(toCompareFullName) === 0){
             updateDOM(characters[i]);
             return true;
         }
