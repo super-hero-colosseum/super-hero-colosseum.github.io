@@ -7,6 +7,9 @@ let url = "https://akabab.github.io/superhero-api/api/all.json";
 // Have to do "all.json" because the api doesn't have an option to
 // search for characters by name
 
+// Get the form element to handle submit events
+const form = document.getElementById("search-form");
+
 // Get the main div where everything will be appended
 const mainDiv = document.getElementById("search-content");
 
@@ -93,7 +96,12 @@ getCharacters();
 // Add an event listener to the button
 // Listen for the 'click' event
 // call the handleClick() function
-searchEvent.addEventListener('click', handleClick);
+//searchEvent.addEventListener('click', handleClick);
+
+// handle a form submit event
+// Now a user can submit by either pressing 'Enter' key
+// or by pressing the 'submit' button
+form.addEventListener('submit', handleClick);
 
 // Function to handle the event when the user presses the submit button
 // Makes a call to searchCharacters() to see if we have the character
