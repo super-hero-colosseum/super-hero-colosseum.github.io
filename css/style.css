@@ -115,7 +115,8 @@ main {
 }
 
 .vs-page,
-.cards-body
+.cards-body,
+.search-body
  {
     background: #dfe7f18f;
     height: 100%;
@@ -133,7 +134,8 @@ main {
 
 .cards-body h1,
 .vs-body h1,
-.home-body h1 {
+.home-body h1,
+.search-body h1 {
     padding-top: 80px;
     text-transform: uppercase;
 }
