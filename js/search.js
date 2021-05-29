@@ -170,6 +170,7 @@ function updateDOM(item) {
     let imgTag = document.createElement("img");
     imgTag.src = item.images.md;
     imgTag.alt = item.name;
+    imgTag.title = item.name;
     div1.appendChild(imgTag);
 
     // Creating a paragraph tag to display the hero's
