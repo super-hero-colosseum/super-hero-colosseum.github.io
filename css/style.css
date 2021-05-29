@@ -248,3 +248,8 @@ main {
     max-width: 500px;
     margin: auto;
 }
+
+/* Search.html specific Stylings */
+#search-term {
+    width: 100%;
+}

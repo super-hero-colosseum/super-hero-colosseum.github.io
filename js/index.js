@@ -66,6 +66,11 @@ function displayHeroes(data) {
         // Set the image alt
         // data[num].name
         image.alt = data[num].name;
+
+        // Set the image title
+        // allows the hero name to appear when the mouse
+        // hovers over the image
+        image.title = data[num].name;
         
         // Append the image to the card div
         cardDiv.appendChild(image);
