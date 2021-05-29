@@ -7,6 +7,9 @@ let url = "https://akabab.github.io/superhero-api/api/all.json";
 // Have to do "all.json" because the api doesn't have an option to
 // search for characters by name
 
+// Get the form element to handle submit events
+const form = document.getElementById("search-form");
+
 // Get the main div where everything will be appended
 const mainDiv = document.getElementById("search-content");
 
@@ -93,7 +96,12 @@ getCharacters();
 // Add an event listener to the button
 // Listen for the 'click' event
 // call the handleClick() function
-searchEvent.addEventListener('click', handleClick);
+//searchEvent.addEventListener('click', handleClick);
+
+// handle a form submit event
+// Now a user can submit by either pressing 'Enter' key
+// or by pressing the 'submit' button
+form.addEventListener('submit', handleClick);
 
 // Function to handle the event when the user presses the submit button
 // Makes a call to searchCharacters() to see if we have the character
@@ -144,8 +152,19 @@ function searchCharacters() {
         // if the character exists, call function to update the DOM
         // Then return true
         // convert the character name to a lowercase str for comparison
-        toCompare = characters[i].name.toLowerCase();
-        if(hero.localeCompare(toCompare) === 0){
+        toCompareName = characters[i].name.toLowerCase();
+        if(hero.localeCompare(toCompareName) === 0){
+            updateDOM(characters[i]);
+            return true;
+        }
+        // There are some characters who share the name hero name
+        // So we'll also accept character's real full name
+        // Example: when searching for "Batman"
+        //          You'll get Terry McGinnis Batman (Batman Beyond)
+        //          But now you can get Bruce Wayne Batman (original) by
+        //          searching for his real full name
+        toCompareFullName = characters[i].biography.fullName.toLowerCase();
+        if(hero.localeCompare(toCompareFullName) === 0){
             updateDOM(characters[i]);
             return true;
         }
@@ -170,6 +189,7 @@ function updateDOM(item) {
     let imgTag = document.createElement("img");
     imgTag.src = item.images.md;
     imgTag.alt = item.name;
+    imgTag.title = item.name;
     div1.appendChild(imgTag);
 
     // Creating a paragraph tag to display the hero's
