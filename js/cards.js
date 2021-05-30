@@ -1,18 +1,35 @@
 let url = "https://akabab.github.io/superhero-api/api/all.json";
 let cardsInfo = document.getElementById('cards');
 
+let sessionKey = "heroID";
+
 window.onload = getApiJson();
+
 
 function displayCards(data) {
     data.forEach(element => {
         let div = document.createElement('div');
         // div.className = 'card-border';
         cardsInfo.appendChild(div);
-        // let a = document.createElement('a');
+        
+        let anchor = document.createElement('a');
+        anchor.id = element.id;
+        anchor.href = "character.html";
+
+        anchor.addEventListener('click', (event) => {
+            sessionStorage.setItem(sessionKey, anchor.id);
+        });
+
+        div.appendChild(anchor);
+        //cardsInfo.appendChild(anchor);
+
         let img = document.createElement('img');
         img.src = element.images.sm;
         img.alt = element.name;
-        div.appendChild(img);
+
+        anchor.appendChild(img);
+        //div.appendChild(img);
+
         let name = document.createElement('h5');
         name.setAttribute('width', '160');
         name.className = 'heroName';
@@ -27,6 +44,8 @@ function displayCards(data) {
         } else {
             realName.innerText = element.biography.fullName;
         }
+
+        //anchor.appendChild(div);
         
         // console.log(element.biography.fullName);
         // console.log(typeof(element.biography.fullName));
