@@ -62,30 +62,110 @@ function displayCharacter(character) {
     // Creating a paragraph tag to display the hero's
     // biographical information
     let p1 = document.createElement("p");
-    p1.innerHTML = `Full Name: ${character.biography.fullName}<br />
-    Alter Egos: ${character.biography.alterEgos}<br />
+    if(character.appearance.race === null){
+        p1.innerHTML = `Full Name: ${character.name}<br />`;
+    }
+    else if(character.biography.fullName.localeCompare("-") === 0) {
+        p1.innerHTML = `Full Name: ${character.name}<br />`;
+    }
+    else {
+        p1.innerHTML = `Full Name: ${character.biography.fullName}<br />`;
+    }
+
+    p1.innerHTML += `Alter Egos: ${character.biography.alterEgos}<br />
     Aliases:<br />`;
     // The aliases are stored in an array, so it's necessary to
     // to loop through each element
-    character.biography.aliases.forEach((x) => {
-        p1.innerHTML += `&emsp;${x}<br />`;
-    });
-    p1.innerHTML += `Place of Birth: ${character.biography.placeOfBirth}<br />
-    First Appearance: ${character.biography.firstAppearance}<br />
-    Publisher: ${character.biography.publisher}<br />
-    Alignment: ${character.biography.alignment}`;
+    if(character.biography.aliases[0].localeCompare("-") === 0) {
+        p1.innerHTML += `&emsp;None<br />`;
+    }
+    else {
+        character.biography.aliases.forEach((x) => {
+            p1.innerHTML += `&emsp;${x}<br />`;
+        });
+    }
+
+    if(character.biography.placeOfBirth === null){
+        p1.innerHTML += `Place of Birth: "Unknown"<br />`;
+    }
+    else if(character.biography.placeOfBirth.localeCompare("-") === 0) {
+        p1.innerHTML += `Place of Birth: "Unknown"<br />`;
+    }
+    else {
+        p1.innerHTML += `Place of Birth: ${character.biography.placeOfBirth}<br />`;
+    }
+
+    p1.innerHTML += `First Appearance: ${character.biography.firstAppearance}<br />
+    Publisher: ${character.biography.publisher}<br />`;
+
+    if(character.biography.alignment === null){
+        p1.innerHTML += `Alignment: None`;
+    }
+    else if(character.biography.alignment.localeCompare("-") === 0) {
+        p1.innerHTML += `Alignment: None`;
+    }
+    else {
+        p1.innerHTML += `Alignment: ${character.biography.alignment}`;
+    }
     div1.appendChild(p1);
 
     // Creating the 2nd paragraph tag that displays the hero's appearance
     // No need to loop during the height and weight arrays since
     // there's only two values in those arrays
     let p2 = document.createElement("p");
-    p2.innerHTML = `Gender: ${character.appearance.gender}<br />
-    Race: ${character.appearance.race}<br />
-    Height: ${character.appearance.height[0]} (${character.appearance.height[1]})<br />
-    Weight: ${character.appearance.weight[0]} (${character.appearance.weight[1]})<br />
-    Eye Color: ${character.appearance.eyeColor}<br />
-    Hair Color: ${character.appearance.hairColor}`;
+    if(character.appearance.gender === null){
+        p2.innerHTML = `Gender: "Unknown"<br />`;
+    }
+    else if(character.appearance.gender.localeCompare("-") === 0) {
+        p2.innerHTML = `Gender: "Unknown"<br />`;
+    }
+    else {
+        p2.innerHTML = `Gender: ${character.appearance.gender}<br />`;
+    }
+
+    if(character.appearance.race === null){
+        p2.innerHTML += `Race: "Unknown"<br />`;
+    }
+    else if(character.appearance.race.localeCompare("-") === 0) {
+        p2.innerHTML += `Race: "Unknown"<br />`;
+    }
+    else {
+        p2.innerHTML += `Race: ${character.appearance.race}<br />`;
+    }
+
+    if(character.appearance.height[0].localeCompare("-") === 0) {
+        p2.innerHTML += `Height: Unknown<br />`;
+    }
+    else {
+        p2.innerHTML += `Height: ${character.appearance.height[0]} (${character.appearance.height[1]})<br />`;
+    }
+
+    if(character.appearance.weight[0].localeCompare("- lb") === 0) {
+        p2.innerHTML += `Weight: Unknown<br />`;
+    }
+    else {
+        p2.innerHTML += `Weight: ${character.appearance.weight[0]} (${character.appearance.weight[1]})<br />`;
+    }
+
+    if(character.appearance.eyeColor === null){
+        p2.innerHTML += `Eye Color: "Unknown"<br />`;
+    }
+    else if(character.appearance.eyeColor.localeCompare("-") === 0) {
+        p2.innerHTML += `Eye Color: "Unknown"<br />`;
+    }
+    else {
+        p2.innerHTML += `Eye Color: ${character.appearance.eyeColor}<br />`;
+    }
+
+    if(character.appearance.hairColor === null){
+        p2.innerHTML += `Hair Color: "Unknown"<br />`;
+    }
+    else if(character.appearance.hairColor.localeCompare("-") === 0) {
+        p2.innerHTML += `Hair Color: "Unknown"<br />`;
+    }
+    else {
+        p2.innerHTML += `Hair Color: ${character.appearance.hairColor}<br />`;
+    }
     div1.appendChild(p2);
 
     // Creating the 3rd paragraph tag to display the hero's work
@@ -95,19 +175,36 @@ function displayCharacter(character) {
     // then by commas next.
     // &emsp: tab formatting (supposed to be 4 spaces, but displaying 2)
     let p3 = document.createElement("p");
-    p3.innerHTML = `Occupation:<br />`;
-    let workSemiColon = character.work.occupation.split(";");
-    workSemiColon.forEach((y) => {
-        let workComma = y.split(",");
-        workComma.forEach((z) => {
-            p3.innerHTML += `&emsp;${z}<br />`;
+    if(character.work.occupation === null){
+        p3.innerHTML = `Occupation: None<br />`;
+    }
+    else if(character.work.occupation.localeCompare("-") === 0) {
+        p3.innerHTML = `Occupation: None<br />`;
+    }
+    else {
+        p3.innerHTML = `Occupation:<br />`;
+        let workSemiColon = character.work.occupation.split(";");
+        workSemiColon.forEach((y) => {
+            let workComma = y.split(",");
+            workComma.forEach((z) => {
+                p3.innerHTML += `&emsp;${z}<br />`;
+            });
         });
-    });
-    p3.innerHTML += `Base:<br />`;
-    let baseSemiColon = character.work.base.split(";");
-    baseSemiColon.forEach((base) => {
+    }
+
+    if(character.work.base === null){
+        p3.innerHTML += `Base: None<br />`;
+    }
+    else if(character.work.base.localeCompare("-") === 0) {
+        p3.innerHTML += `Base: None<br />`;
+    }
+    else {
+        p3.innerHTML += `Base:<br />`;
+        let baseSemiColon = character.work.base.split(";");
+        baseSemiColon.forEach((base) => {
             p3.innerHTML += `&emsp;${base}<br />`;        
-    });
+        });
+    }
     div1.appendChild(p3);
 
     // Creating the forth and final paragraph tag to display the
@@ -115,19 +212,36 @@ function displayCharacter(character) {
     // Similar to the work details, the connections are split up by
     // semi-colons and commas.
     let p4 = document.createElement("p");
-    p4.innerHTML = `Group Affiliation:<br />`;
-    let groupSemiColon = character.connections.groupAffiliation.split(";");
-    groupSemiColon.forEach((group) => {
+    if(character.connections.groupAffiliation === null) {
+        p4.innerHTML = `Group Affiliation: None<br />`;
+    }
+    else if(character.connections.groupAffiliation.localeCompare("-") === 0) {
+        p4.innerHTML = `Group Affiliation: None<br />`;
+    }
+    else {
+        p4.innerHTML = `Group Affiliation:<br />`;
+        let groupSemiColon = character.connections.groupAffiliation.split(";");
+        groupSemiColon.forEach((group) => {
             p4.innerHTML += `&emsp;${group}<br />`;        
-    });
-    p4.innerHTML += `Relatives:<br />`;
-    let relSemiColon = character.connections.relatives.split(";");
-    relSemiColon.forEach((r) => {
+        });
+    }
+    
+    if(character.connections.relatives === null) {
+        p4.innerHTML += `Relatives: None<br />`;
+    }
+    else if(character.connections.relatives.localeCompare("-") === 0) {
+        p4.innerHTML += `Relatives: None<br />`;
+    }
+    else {
+        p4.innerHTML += `Relatives:<br />`;
+        let relSemiColon = character.connections.relatives.split(";");
+        relSemiColon.forEach((r) => {
             let relComma = r.split(",");
             relComma.forEach((rel) => {
                 p4.innerHTML += `&emsp;${rel}<br />`;
             });       
-    });
+        });
+    }
     div1.appendChild(p4);
 
     // Create the canvas element to add to the html page
