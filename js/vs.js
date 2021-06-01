@@ -20,19 +20,64 @@ let url = "https://akabab.github.io/superhero-api/api/all.json";
 const form = document.querySelector('form');
 const heroOneName = document.getElementById('heroOneName');
 const heroTwoName = document.getElementById('heroTwoName');
-const myChart1 = document.getElementById('myChart1');
-const myChart2 = document.getElementById('myChart2');
+//const myChart1 = document.getElementById('myChart1');
+//const myChart2 = document.getElementById('myChart2');
+const hero1Div = document.querySelector('.vs-div1');
+const hero2Div = document.querySelector('.vs-div2');
 
+function resetData() {
+    let dElem1 = document.getElementById('heroOneInfo');
+    if(!!dElem1) {
+        dElem1.remove();
+    }
 
+    let canvasElem1 = document.getElementById('myChart1');
+    if(!!canvasElem1) {
+        canvasElem1.remove();
+    }
+
+    let dElem2 = document.getElementById('heroTwoInfo');
+    if(!!dElem2) {
+        dElem2.remove();
+    }
+
+    let canvasElem2 = document.getElementById('myChart2');
+    if(!!canvasElem2) {
+        canvasElem2.remove();
+    }
+
+    let newDiv1 = document.createElement('div');
+    newDiv1.setAttribute('id','heroOneInfo');
+
+    let newCanvas1 = document.createElement('canvas');
+    newCanvas1.setAttribute('id','myChart1');
+    newCanvas1.setAttribute('role','img');
+
+    hero1Div.appendChild(newDiv1);
+    hero1Div.appendChild(newCanvas1);
+
+    let newDiv2 = document.createElement('div');
+    newDiv2.setAttribute('id','heroTwoInfo');
+
+    let newCanvas2 = document.createElement('canvas');
+    newCanvas2.setAttribute('id','myChart2');
+    newCanvas2.setAttribute('role','img');
+
+    hero2Div.appendChild(newDiv2);
+    hero2Div.appendChild(newCanvas2);
+}
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    resetData();
     getApiJson();
 })
 
 //create charts using the stats of two superheros
 function createChart(stats1, stats2) {
-
+    let myChart1 = document.getElementById('myChart1');
+    let myChart2 = document.getElementById('myChart2');
+    
     let chart1 = new Chart(myChart1, {
         type: 'bar',
         data: {
