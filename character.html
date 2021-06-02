@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VS</title>
+    <title>Hero Data</title>
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
@@ -25,10 +25,11 @@
     <!-- custom css file -->
     <link rel="stylesheet" href="css/style.css">
 
-    <script defer src="js/vs.js"></script>
+
 </head>
 
-<body class="vs-page">
+<body class="character-body">
+
     <!-- NAVIGATION BAR -->
     <header class="header">
         <nav class="navbar navbar-expand-lg">
@@ -61,43 +62,20 @@
         </nav>
     </header>
     <!-- END OF NAVIGATION BAR -->
-
-    <!-- search field -->
-    <main>
-        <section class="vs-body">
-            <h1>WELCOME TO THE <br><strong>ARENA</strong></h1>
-            <p>Type in the names of two superheros to compare the stats.</p>
-
-            <!-- input form -->
-            <form action="" class="fight-form" onsubmit="return false;">
-                <input id="heroOneName" type="text" class="form-control" placeholder="Superhero #1 ..." aria-label="Superhero 1's name" aria-describedby="Superhero 1's name" required>
-                <input id="heroTwoName" type="text" class="form-control" placeholder="Superhero #2 ..." aria-label="Superhero 2's name" aria-describedby="Superhero 1's name" required>
-                <br>
-                <button id="submit" class="btn btn-outline-secondary" type="submit">
-                    Fight</button>
-            </form>
-            <!-- end of input form -->
-
-            <!-- two charts -->
-            <div class="container">
-                <div class="row">
-                    <div class="vs-div1 col-sm-6">
-                        <div id="heroOneInfo"></div>
-                        <canvas id="myChart1" role="img"></canvas>
-                    </div>
-                    <div class="vs-div2 col-sm-6">
-                        <div id="heroTwoInfo"></div>
-                        <canvas id="myChart2" role="img"></canvas>
-                    </div>
-                    
-                    
+    
+        <div id="character-container" class="container">
+            <div class="row heading">
+                <div class="col-12">
+                    <h1 id="character-name"></h1>
+                    <hr class="cool-line">
                 </div>
             </div>
-            <!-- end of two charts -->
+            <div class="row character-div">
+                <div class="character-data col-md-6"></div>
+                <div class="character-chart col-md-6"></div>
+            </div>
+        </div>
 
-        </section>
-    </main>
-    <!-- end of search field -->
 
     <!-- SCRIP -->
 
@@ -110,6 +88,7 @@
     <!-- custom js -->
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/character.js"></script>
 
 </body>
 

@@ -28,7 +28,7 @@
 
 </head>
 
-<body>
+<body class="search-body">
 
     <!-- NAVIGATION BAR -->
     <header class="header">
@@ -62,7 +62,35 @@
         </nav>
     </header>
     <!-- END OF NAVIGATION BAR -->
-
+    <form action="#" id="search-form" onsubmit="return false;">
+        <div id="search-content" class="container search-body">
+            <div class="row heading">
+                <div class="col-12">
+                    <h1>Hero Search</h1>
+                    <hr class="cool-line">
+                    <p>Find the hero you are looking for</p>
+                </div>
+            </div>
+            <div class="row user-input">
+                <div class="form-group col-8">
+                    <label for="search-term">Enter a hero name:</label>
+                    <input type="text" id="search-term" name="search-term"></input>
+                </div>
+                <div class="form-group mt-4 col-4">
+                    <input type="button" class="btn btn-info" value="search" />
+                </div>
+            </div>
+            <div class="row data-h1">
+                <div class="data-header col-12">
+                    <h2 class="hero-name"></h2>
+                </div>
+            </div>
+            <div class="row data-div">
+                <div class="hero-data col-md-6"></div>
+                <div class="chart col-md-6"></div>
+            </div>
+        </div>
+    </form>
 
 
     <!-- SCRIP -->
@@ -75,6 +103,8 @@
 
     <!-- custom js -->
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/search.js"></script>
 
 </body>
 

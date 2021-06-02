@@ -1,7 +1,3 @@
-// Access token: 287893849691649
-// Make fetch calls to: https://superheroapi.com/api/287893849691649/reference
-// character ids range from 1-733
-
 // using this api now: base api: https://akabab.github.io/superhero-api/api
 // geting ids: /id/#.json
 
@@ -18,6 +14,20 @@ divContainer.className = "container";
 // Contains all the characters in the api
 let url = "https://akabab.github.io/superhero-api/api/all.json";
 
+// Function to check that an array will contain unique values
+function checkArray(arr,val) {
+    if(arr.length === 0) {
+        return false;
+    }
+    let x;
+    for(x = 0; x < arr.length; x++) {
+        if(arr[x] === val) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // Updates the index.html page when the page loads
 // Displays three random heroes everytime the page loads
 function displayHeroes(data) {
@@ -30,15 +40,19 @@ function displayHeroes(data) {
         // random integer from 1 to data.length
         let num = Math.floor(Math.random() * data.length) + 1;
     
+        // Check that the number isn't already in the array
+        // Ensures that the same hero isn't displayed multiple times
+        while(checkArray(charIds,num)) {
+            // Get another random number
+            num = Math.floor(Math.random() * data.length) + 1;
+        }
+
         // adding random number to the charIds array
         charIds.push(num);
     }
 
     // Create the parent div to store the row for bootstrap
     let parentDiv = document.createElement("div");
-    
-    // make the class = row
-    // parentDiv.className = "row";
 
     // get the images from the data
     charIds.forEach((num) =>{
@@ -70,6 +84,11 @@ function displayHeroes(data) {
         // Set the image alt
         // data[num].name
         image.alt = data[num].name;
+
+        // Set the image title
+        // allows the hero name to appear when the mouse
+        // hovers over the image
+        image.title = data[num].name;
         
         // Append the image to the card div
         cardDiv.appendChild(image);
@@ -107,7 +126,6 @@ async function getCharacters() {
     displayHeroes(data);
     
 }
-
 
 // Calling function upon html page reaching the script tag
 getCharacters();
