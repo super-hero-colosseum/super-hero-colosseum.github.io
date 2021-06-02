@@ -98,6 +98,13 @@ function createChart(stats1, stats2) {
             responsive: true,
             legend: {
                 display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
         }
     })
@@ -116,6 +123,13 @@ function createChart(stats1, stats2) {
             responsive: true,
             legend: {
                 display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
         }
     })
