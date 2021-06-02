@@ -24,6 +24,7 @@ const heroTwoName = document.getElementById('heroTwoName');
 //const myChart2 = document.getElementById('myChart2');
 const hero1Div = document.querySelector('.vs-div1');
 const hero2Div = document.querySelector('.vs-div2');
+const winDiv = document.getElementById('win-div');
 
 function resetData() {
     let dElem1 = document.getElementById('heroOneInfo');
@@ -44,6 +45,11 @@ function resetData() {
     let canvasElem2 = document.getElementById('myChart2');
     if(!!canvasElem2) {
         canvasElem2.remove();
+    }
+
+    let dElem3 = document.getElementById('winner');
+    if(!!dElem3) {
+        dElem3.remove();
     }
 
     let newDiv1 = document.createElement('div');
@@ -92,6 +98,13 @@ function createChart(stats1, stats2) {
             responsive: true,
             legend: {
                 display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
         }
     })
@@ -110,11 +123,47 @@ function createChart(stats1, stats2) {
             responsive: true,
             legend: {
                 display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
         }
     })
 }
 
+// 
+function determineWinner(hero1,hero2,heroStats1,heroStats2) {
+    let div = document.createElement('div');
+    div.setAttribute('id','winner');
+
+    let header = document.createElement('h5');
+
+    statsArr1 = Object.values(heroStats1);
+    statsArr2 = Object.values(heroStats2);
+ 
+    let hero1score = statsArr1.reduce((x,y) => x + y, 0) / statsArr1.length;
+    let hero2score = statsArr2.reduce((x,y) => x + y, 0) / statsArr2.length;
+   
+   if(hero1score > hero2score) {
+       // hero 1 winner
+       header.innerText = `Winner: ${hero1}!!`;
+   }
+   else if(hero1score < hero2score) {
+        // hero 2 winner
+       header.innerText = `Winner: ${hero2}!!`;
+   }
+   else {
+       // we have a tie
+       header.innerText = "Looks Like We Have a Tie!!";
+   }
+
+   div.appendChild(header);
+   winDiv.appendChild(div);
+}
 
 //find the names and create cards
 function findNames(data) {
@@ -195,6 +244,7 @@ function findNames(data) {
         })
 
         createChart(stats1, stats2);
+        determineWinner(heroOneName.value,heroTwoName.value,stats1,stats2);
     }
 
     if(found1 === true &&  found2 === false) {
