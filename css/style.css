@@ -157,7 +157,7 @@ main {
 #cards div:hover,
 #cards div:focus,
 #cards div:active {
-    background:rgb(22, 22, 22);
+    background: rgb(216, 59, 85);
     box-shadow: 0px 0px 15px 2px rgba(45, 43, 54, 0.5);
 }
 
