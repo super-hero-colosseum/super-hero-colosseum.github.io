@@ -96,7 +96,7 @@ getCharacters();
 // Add an event listener to the button
 // Listen for the 'click' event
 // call the handleClick() function
-//searchEvent.addEventListener('click', handleClick);
+searchEvent.addEventListener('click', handleClick);
 
 // handle a form submit event
 // Now a user can submit by either pressing 'Enter' key
@@ -114,7 +114,11 @@ function handleClick(event) {
 
     // Determines whether the hero is contained in the data set
     // Updates the DOM depending on if a hero was found
-    if(searchCharacters() === false) {
+    if(userInput.value.localeCompare("") === 0) {
+        // Don't allow empty strings
+        heroHeader.innerHTML = "Please Enter a Hero Name";
+    }
+    else if(searchCharacters() === false) {
         heroHeader.innerHTML = "Hero Not Found";
     }
     return;
@@ -147,6 +151,7 @@ function resetData() {
 function searchCharacters() {
     let input = userInput.value;
     let hero = input.toLowerCase();
+
     let i;
     for(i = 0; i < characters.length; i++) {
         // if the character exists, call function to update the DOM
