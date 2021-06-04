@@ -26,6 +26,7 @@ const hero1Div = document.querySelector('.vs-div1');
 const hero2Div = document.querySelector('.vs-div2');
 const winDiv = document.getElementById('win-div');
 
+//this function resets the previous data displayed on screen when input changes
 function resetData() {
     let dElem1 = document.getElementById('heroOneInfo');
     if(!!dElem1) {
@@ -172,7 +173,7 @@ function findNames(data) {
 
     let found1 = false;
     let found2 = false;
-
+    //check if an input exists
     data.forEach(element => {
         if(heroOneName.value === element.name) {
             found1 = true;
@@ -186,7 +187,7 @@ function findNames(data) {
     // let found = findIfExists(data);
     // console.log(found);
 
-
+    //different logic for if one or two inputs exist
     if(found1 === true &&  found2 === true) {
         let stats1, stats2;
 
@@ -270,7 +271,7 @@ function findNames(data) {
 
 }
 
-
+//making calls to the API to get a JSON folder.
 async function getApiJson() {
     let getApi = await fetch(url);
 
