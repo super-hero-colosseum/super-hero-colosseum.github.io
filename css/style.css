@@ -1,0 +1,257 @@
+html,
+body {
+    font-family: 'Rubik', sans-serif;
+    color: #444;
+    margin: 0;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+
+}
+
+ul {
+    list-style: none;
+}
+
+.navbar {
+    background: black;
+    padding: 0 8%;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,0.5);
+    width: 100%;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar .navbar-brand {
+    background: #C31BCF;
+    background: -webkit-radial-gradient(circle farthest-side at top right, #3f42e2 0%, #91EEE1 72%);
+    background: -moz-radial-gradient(circle farthest-side at top right, #3f42e2 0%, #91EEE1 72%);
+    background: radial-gradient(circle farthest-side at top right, #3f42e2 0%, #91EEE1 72%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+}
+.navbar .navbar-nav .nav-link {
+    color: #91eee1;
+}
+
+.navbar-link {
+    padding: 0.5rem 10rem;
+}
+
+.navbar-toggler {
+    background: #91eee1;
+    border: none;
+    padding: 5px;
+    outline: none;
+}
+
+.navbar-toggler span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border: 1px;
+    background: black;
+}
+
+.navbar-toggler span + span {
+    margin-top: 4px;
+    width: 18px;
+}
+
+.navbar-toggler span + span + span{
+    width: 18px;
+}
+
+.navbar-toggler span + span + span + span{
+    width: 18px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0 1.2rem;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover,
+.navbar-expand-lg .navbar-nav .nav-link:active,
+.navbar-expand-lg .navbar-nav .nav-link:focus {
+    background-color:#91eee1;
+    color: black;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* #content {
+    margin-top: 3.0rem;
+} */
+
+.cool-line {
+    /* padding: 0;
+    border: none;
+    background-image: -webkit-linear-gradient(left, rgba(255, 119, 237, 0.877), rgba(66, 53, 240, 0.979), rgba(77, 240, 252, 0.925));
+    background-image: -moz-linear-gradient(left, rgba(255, 119, 237, 0.877), rgba(66, 53, 240, 0.979), rgba(77, 240, 252, 0.925));
+    background-image: -ms-linear-gradient(left, rgba(255, 119, 237, 0.877), rgba(66, 53, 240, 0.979), rgba(77, 240, 252, 0.925));
+    background-image: -o-linear-gradient(left, rgba(255, 119, 237, 0.877), rgba(66, 53, 240, 0.979), rgba(77, 240, 252, 0.925)); */
+
+    border: 5px dotted #444;
+    border-style: none none dotted; 
+    color: #fff; 
+    background-color: #fff;
+}
+
+main {
+    padding: 0 8%;
+    padding-bottom: 20px;
+
+}
+
+.vs-page,
+.cards-body,
+.search-body,
+.character-body
+ {
+    background: #dfe7f18f;
+    height: 100%;
+}
+
+.home-page {
+    background: linear-gradient(#9198e58a, #e6646452);
+    height: 100%;
+}
+
+.cards-body,
+.vs-body {
+    text-align: center;
+}
+
+.cards-body h1,
+.vs-body h1,
+.home-body h1,
+.search-body h1,
+.character-body h1 {
+    padding-top: 80px;
+    text-transform: uppercase;
+}
+
+.home-body h1 {
+    font-weight: bold;
+}
+
+.home-description {
+    text-align: left;
+    padding: 5px 0;
+}
+
+#cards div {
+    display: inline-block;
+    background: black;
+    padding: 10px;
+    margin: 5px;
+}
+
+#cards div:hover,
+#cards div:focus,
+#cards div:active {
+    background: rgb(216, 59, 85);
+    box-shadow: 0px 0px 15px 2px rgba(45, 43, 54, 0.5);
+}
+
+.heroName {
+    padding: 10px 0;
+    color: #91eee1;
+    width: 160px;
+    /* height: 380px; */
+}
+
+#cards p {
+    color: white;
+    width: 160px;
+}
+
+.fight-form input {
+    max-width: 400px;
+    display: inline;
+    margin: 5px;
+}
+
+.vs-body h1 {
+    font-size: 2rem;
+}
+
+.vs-body button {
+    border-radius: 0;
+    color: #91eee1;
+    background-color: #050801;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: 0.5s;
+    border: black;
+    width: 100px;
+    margin: 20px;
+    font-weight: bold;
+    /* word-spacing: 80px; */
+}
+
+.vs-body button:hover {
+    background: #f33d89;
+    color: white;
+    box-shadow: 0 0 5px #b8b5ff,
+                0 0 25px #b8b5ff,
+                0 0 50px #b8b5ff,
+                0 0 500px #b8b5ff;
+    /* border: 1px solid #a6a3fd; */
+
+}
+
+.vs-body #heroOneName {
+    border-image: linear-gradient(45deg, #3f42e2, #91eee1) 1;
+}
+
+.vs-body #heroTwoName {
+    border-image: linear-gradient(45deg, #91eee1, #3f42e2) 1;
+}
+
+#images {
+    text-align: center;
+    /* display: inline; */
+}
+
+.card-div {
+    padding: 10px;
+    border:rgba(66, 53, 240, 0.979);
+}
+
+.card-div img {
+    border: 1px solid #b8b5ff;
+    box-shadow: 0px 0px 30px 2px white;
+}
+
+.vs-body .container p {
+    margin: 0;
+    padding: 3px;
+}
+
+.vs-body .container img {
+    /* padding: 10px; */
+}
+
+#myChart1,
+#myChart2 {
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Search.html specific Stylings */
+#search-term {
+    width: 100%;
+}
